@@ -21,8 +21,9 @@ function scr_text(_text)
 	// Get Character Info
 	if argument_count > 1
 	{
+		// Character Portrait
 		switch(argument[1])
-		{
+		{g
 		
 			case "NPC":
 				speaker_sprite[page_number] = spr_npcport_spk
