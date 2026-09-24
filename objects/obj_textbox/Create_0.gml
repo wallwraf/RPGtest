@@ -30,7 +30,12 @@ arrow_spd = 1 / 60;
 
 setup = false;
 
+// Sound
+snd_delay = 4;
+snd_count = snd_delay;
 
 // Text Effects
 scr_set_defaults_for_text();
 last_free_space = 0;
+text_pause_timer = 0;
+text_pause_time = 16;

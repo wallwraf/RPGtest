@@ -1,5 +1,5 @@
-accept_key = keyboard_check_pressed(ord("Z"))
-cancel_key = keyboard_check_pressed(ord("X"))
+accept_key = global.accept_button
+cancel_key = global.cancel_button
 
 textbox_x = camera_get_view_x( view_camera[0] );
 textbox_y = camera_get_view_y( view_camera[0] ) + 160;
@@ -104,11 +104,25 @@ if !setup
 
 
 // Typing text
-if draw_char < text_length[page]
+if text_pause_timer <= 0
 {
-	draw_char += text_speed;
-	draw_char = clamp(draw_char, 0, text_length[page]);
-}
+	if draw_char < text_length[page]
+	{
+		draw_char += text_speed;
+		draw_char = clamp(draw_char, 0, text_length[page]);
+		var _check_char = string_char_at(text[page], draw_char);
+		if _check_char = "." || _check_char = "!" || _check_char = "?" || _check_char = ","
+		{
+			text_pause_timer = text_pause_time;
+			if !audio_is_playing(snd[page]) { snd_count = 0; audio_play_sound(snd[page], 8, false, global.effectVolume * global.masterVolume) }
+		} else
+		{
+			// Typing snd
+			if snd_count < snd_delay { snd_count++ }
+			else { snd_count = 0; audio_play_sound(snd[page], 8, false, global.effectVolume * global.masterVolume) }
+		}
+	}
+} else { text_pause_timer-- };
 
 // Flip through pages
 if accept_key
@@ -201,7 +215,35 @@ if draw_char == text_length[page] && page == page_number - 1
 for( var c = 0; c < draw_char; c++ )
 {
 	
+	// - - - - - - Special Effects - - - - - - //
+	// Wavy Text
+	var _float_y = 0;
+	if float_text[c, page]
+	{
+		float_dir[c, page] += -6;
+		_float_y = dsin( float_dir[c, page] );
+	}
+	// Shake Text
+	var _shake_x = 0;
+	var _shake_y = 0;
+	if shake_text[c, page]
+	{
+		shake_timer[c, page]--;
+		if shake_timer[c, page] <= 0
+		{
+			shake_timer[c, page] = irandom_range(4, 8);
+			shake_dir[c, page] = irandom(360);
+			
+		}
+		if shake_timer[c, page] <= 2
+		{
+			_shake_x = lengthdir_x(1, shake_dir[c, page]);
+			_shake_y = lengthdir_y(1, shake_dir[c, page]);
+		}
+	
+	}
+	
 	// Text
-	draw_text( char_x[c, page], char_y[c, page], char[c, page] )
+	draw_text_colour( char_x[c, page] + _shake_x, char_y[c, page] + _float_y + _shake_y, char[c, page], col_1[c, page], col_2[c, page], col_3[c, page], col_4[c, page], 1 )
 	
 }

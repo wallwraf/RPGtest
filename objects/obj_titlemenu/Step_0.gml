@@ -1,7 +1,9 @@
+
+
 // Get Inputs
 up_key = keyboard_check_pressed(vk_up);
 down_key = keyboard_check_pressed(vk_down);
-accept_key = keyboard_check_pressed(ord("Z"))
+accept_key = global.accept_button
 
 // Store Options No.
 op_length = array_length(option[menu_level])
