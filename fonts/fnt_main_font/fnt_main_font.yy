@@ -120,8 +120,8 @@
   "maintainGms1Font":false,
   "name":"fnt_main_font",
   "parent":{
-    "name":"Menu",
-    "path":"folders/UI/Menu.yy",
+    "name":"Fonts",
+    "path":"folders/Fonts.yy",
   },
   "pointRounding":0,
   "ranges":[

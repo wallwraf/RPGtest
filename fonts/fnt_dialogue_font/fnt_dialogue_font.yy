@@ -141,8 +141,8 @@
   "maintainGms1Font":false,
   "name":"fnt_dialogue_font",
   "parent":{
-    "name":"Dialogue",
-    "path":"folders/UI/Dialogue.yy",
+    "name":"Fonts",
+    "path":"folders/Fonts.yy",
   },
   "pointRounding":0,
   "ranges":[
