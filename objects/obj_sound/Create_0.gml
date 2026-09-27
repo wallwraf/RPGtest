@@ -1,11 +1,15 @@
 global.effectVolume = 1;
 
-// Oneshots
+// - - - - - - - - - - - Oneshots
 doorOpen = false;
 doorClose = false;
 buttonDown = false;
 buttonUp = false;
 
+// Attacks
+defaultAttack = false;
+fireShock = false;
+fireGrave = false;
 
 // Loops
 rumbleLoop = false; rumbleLoopInst = noone;

@@ -40,6 +40,30 @@ if buttonUp
 	buttonUp = false;
 }
 
+// - - Attacks
+// Default
+if buttonUp
+{
+	_snd = audio_play_sound(sfx_buttonup, 8, false);
+	audio_sound_gain(_snd, _sfxVol, 0)
+	buttonUp = false;
+}
+
+// FireShock
+if fireShock
+{
+	_snd = audio_play_sound(sfx_fireshock, 8, false);
+	audio_sound_gain(_snd, _sfxVol, 0)
+	fireShock = false;
+}
+
+// FireGrave
+if fireGrave
+{
+	_snd = audio_play_sound(sfx_firegrave, 8, false);
+	audio_sound_gain(_snd, _sfxVol, 0)
+	fireGrave = false;
+}
 
 
 // Loops - - - - - - - - - - - - - - - - - - - - - - - -

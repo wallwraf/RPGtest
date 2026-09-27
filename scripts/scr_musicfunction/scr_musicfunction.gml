@@ -5,6 +5,7 @@ function set_song_ingame( _song, _fadeOutCurrent = 0, _fadeInNew = 0, _songOverl
 	// _fadeInNew = Time (in frames) the new track will take to fade to 1
 	// _songOverlap = Dictates if the song should overlap the previous track
 	
+	instance_activate_object(obj_musicmanager)
 	with( obj_musicmanager )
 	{
 		targetSongAsset = _song;

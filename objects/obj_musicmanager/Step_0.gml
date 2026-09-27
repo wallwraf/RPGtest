@@ -1,6 +1,5 @@
 var _finalVol = global.musicVolume * global.masterVolume;
 
-
 // Play target song
 if songAsset != targetSongAsset
 {

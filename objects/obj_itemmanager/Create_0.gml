@@ -1,11 +1,12 @@
 depth = -10000;
 
 // Item Constructor
-function create_item(_name, _desc, _icon, _effect) constructor
+function create_item(_name, _desc, _icon, _droppable, _effect) constructor
 	{
 	name = _name;
 	desc = _desc;
 	icon = _icon;
+	droppable = _droppable;
 	effect = _effect;
 	}
 
@@ -19,6 +20,7 @@ global.item_list =
 		"Test Item",
 		"An item for testing.",
 		spr_test_item,
+		true,
 		function()
 			{
 			obj_player.xspd += 5;
@@ -32,14 +34,24 @@ global.item_list =
 		"Devilish Key",
 		"Opens doors. [SINGLE USE]",
 		spr_test_item_2,
+		false,
 		function()
 			{
+			var _used = false;
 			if instance_exists(obj_demon_door)
 				{
 				with(obj_demon_door)
 					{
-					if distance_to_object(obj_player) < 20 { instance_destroy(); };
+					if distance_to_object(obj_player) < 20 
+						{ 
+						instance_destroy(); 
+						_used = true;
+						}
 					}
+				}
+			if _used
+				{
+				array_delete(inv, selected_item, 1);
 				}
 			}
 		),
@@ -52,6 +64,7 @@ global.item_list =
 // Create Inventory
 inv = array_create(0);
 
+inv_max = 16;
 selected_item = -1;
 
 //

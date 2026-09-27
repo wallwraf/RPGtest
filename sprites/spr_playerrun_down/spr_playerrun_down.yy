@@ -31,7 +31,7 @@
   "origin":4,
   "parent":{
     "name":"Run",
-    "path":"folders/Sprites/Player/Run.yy",
+    "path":"folders/Sprites/Characters/Playable/Player/Run.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

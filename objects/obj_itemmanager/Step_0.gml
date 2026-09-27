@@ -24,4 +24,8 @@ if selected_item != -1
 		inv[selected_item].effect();
 		}
 	
+	if mouse_check_button_pressed(mb_right) && inv[selected_item].droppable
+		{
+		array_delete(inv, selected_item, 1);
+		}
 	}

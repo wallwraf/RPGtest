@@ -29,7 +29,7 @@
   "origin":4,
   "parent":{
     "name":"Walk",
-    "path":"folders/Sprites/Player/Walk.yy",
+    "path":"folders/Sprites/Characters/Playable/Player/Walk.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
