@@ -1,2 +1,2 @@
 // Load room state
-load_room();
+//load_room();

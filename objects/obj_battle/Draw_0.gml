@@ -1,6 +1,3 @@
-// Draw Background
-draw_sprite(battleBackground, 0, x, y);
-
 // Draw Units by Depth Order
 var _unitWithCurrentTurn = unitTurnOrder[turn].id;
 for (var i = 0; i < array_length(unitRenderOrder); i++)

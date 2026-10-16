@@ -19,7 +19,7 @@ char[0, 0] = "";
 char_x[0, 0] = 0;
 char_y[0, 0] = 0;
 draw_char = 0;
-text_speed = 1;
+text_speed = 2;
 // Options
 option_spr = spr_dialogueoption;
 option[0] = "";
@@ -31,11 +31,11 @@ arrow_spd = 1 / 60;
 setup = false;
 
 // Sound
-snd_delay = 4;
+snd_delay = 1;
 snd_count = snd_delay;
 
 // Text Effects
 scr_set_defaults_for_text();
 last_free_space = 0;
 text_pause_timer = 0;
-text_pause_time = 16;
+text_pause_time = 6;

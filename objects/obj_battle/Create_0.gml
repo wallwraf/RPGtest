@@ -2,6 +2,8 @@ instance_deactivate_all(true);
 instance_activate_object(obj_battlebg);
 instance_activate_object(obj_sound);
 instance_activate_object(obj_volume);
+instance_activate_object(obj_battlebg);
+instance_create_depth(x, y, 50, obj_battlebg);
 set_song_ingame(sng_ruder_buster, 10, 0, true);
 
 units = [];
@@ -217,7 +219,18 @@ function battle_state_perform_action()
 
 function battle_state_victory_check()
 {
-	battleState = battle_state_turn_progression;
+	array_filter(enemyUnits, function(_unit, _index)
+		{
+			return (_unit.hp > 0);
+		});
+	if (array_length(enemyUnits) <= 1) && (array_first(enemyUnits).hp <= 0)
+	{
+		instance_destroy();
+	}
+	else
+	{
+		battleState = battle_state_turn_progression;
+	}
 }
 
 function battle_state_turn_progression()
